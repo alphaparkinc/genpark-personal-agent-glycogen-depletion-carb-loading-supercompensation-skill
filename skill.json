@@ -1,0 +1,70 @@
+{
+  "name": "genpark-personal-agent-glycogen-depletion-carb-loading-supercompensation-skill",
+  "version": "1.0.0",
+  "title": "Muscle Glycogen Depletion & Carb-Loading Supercompensation Skill",
+  "description": "Endurance athlete skeletal muscle glycogen depletion modeling, Bergstr\u00f6m biopsy kinetic simulation, 36-hour carb-loading protocol, and gastrointestinal distress prevention copilot. Built for GenPark (https://www.genpark.ai).",
+  "homepage": "https://www.genpark.ai",
+  "linkedin": "https://www.linkedin.com/company/92955550",
+  "category": "personal-agent",
+  "topics": [
+    "glycogen-loading",
+    "supercompensation",
+    "marathon-nutrition",
+    "endurance-fueling",
+    "personal-agent",
+    "model-context-protocol",
+    "genpark"
+  ],
+  "tools": [
+    {
+      "name": "calculate_supercompensation_carb_needs",
+      "description": "Calculate precision carbohydrate intake (g/kg/day) and total hydration requirements to maximize skeletal muscle glycogen stores prior to race day.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "body_weight_kg": {
+            "type": "number"
+          },
+          "target_event_duration_hours": {
+            "type": "number"
+          },
+          "loading_window_days": {
+            "type": "integer",
+            "enum": [
+              1,
+              2,
+              3
+            ]
+          }
+        },
+        "required": [
+          "body_weight_kg",
+          "target_event_duration_hours"
+        ]
+      }
+    },
+    {
+      "name": "synthesize_low_fiber_meal_cadence",
+      "description": "Synthesize a low-residue, low-fiber 36-hour fueling plan to minimize gastrointestinal distress while hitting 9g CHO/kg.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "daily_target_carbs_grams": {
+            "type": "integer"
+          },
+          "dietary_preference": {
+            "type": "string",
+            "enum": [
+              "standard",
+              "plant_based",
+              "gluten_free"
+            ]
+          }
+        },
+        "required": [
+          "daily_target_carbs_grams"
+        ]
+      }
+    }
+  ]
+}
